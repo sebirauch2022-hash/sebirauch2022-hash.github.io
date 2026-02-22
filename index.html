@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Galaxy Dodge — Spiel</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="game-header">
+        <div class="header-content">
+          <h2 class="title-sub">Galaxy Dodge</h2>
+        </div>
+        <!-- Header menu removed to restore original menu layout -->
+      </header>
+
+      <main class="game-area">
+        <canvas id="gameCanvas" class="hidden" width="900" height="600" aria-label="Spielbereich"></canvas>
+        <div id="ui">
+          <div class="score">Score: <span id="score">0</span></div>
+          <div class="highscore">Highscore: <span id="highscore">0</span></div>
+          <div class="lives">Leben: <span id="lives">3</span></div>
+          <div class="shield">Schild: <span id="shield">0s</span></div>
+        </div>
+        <div id="controls">
+          <button id="muteBtn" class="control-btn" title="Sound an/aus">🔊</button>
+          <button id="fullscreenBtn" class="control-btn" title="Fullscreen">⛶</button>
+        </div>
+
+        <div id="overlay" class="overlay">
+          <div id="menuPanel" class="menu-main">
+            <div class="liquid-bg-main" aria-hidden="true">
+              <span class="bubble b1"></span>
+              <span class="bubble b2"></span>
+              <span class="bubble b3"></span>
+              <span class="bubble b4"></span>
+              <span class="bubble b5"></span>
+              <span class="bubble b6"></span>
+            </div>
+            
+            <div class="menu-content">
+              <div class="menu-hero">
+                <h1 class="menu-title">Wähle dein Modus</h1>
+                <p class="menu-subtitle">Tauche in das Weltraum-Abenteuer ein</p>
+              </div>
+
+              <div class="modes-grid">
+                <!-- Classic Modes -->
+                <div class="mode-card" data-mode="dodge">
+                  <div class="mode-icon">⚡</div>
+                  <h3>Dodge</h3>
+                  <p class="mode-tagline">Klassisch</p>
+                  <p class="mode-desc">Weiche Meteoriten aus</p>
+                </div>
+
+                <div class="mode-card" data-mode="shooter">
+                  <div class="mode-icon">🎯</div>
+                  <h3>Shooter</h3>
+                  <p class="mode-tagline">Klassisch</p>
+                  <p class="mode-desc">Bekämpfe Gegner</p>
+                </div>
+
+                <div class="mode-card" data-mode="arena">
+                  <div class="mode-icon">🔥</div>
+                  <h3>Arena</h3>
+                  <p class="mode-tagline">Klassisch</p>
+                  <p class="mode-desc">Totales Chaos</p>
+                </div>
+
+                <!-- Special Modes -->
+                <div class="mode-card" data-mode="boss">
+                  <div class="mode-icon">👾</div>
+                  <h3>Boss</h3>
+                  <p class="mode-tagline">Spezial</p>
+                  <p class="mode-desc">Epische Kämpfe</p>
+                </div>
+
+                <div class="mode-card" data-mode="survival">
+                  <div class="mode-icon">🛡️</div>
+                  <h3>Survival</h3>
+                  <p class="mode-tagline">Spezial</p>
+                  <p class="mode-desc">Wellen von Gegnern</p>
+                </div>
+
+                <div class="mode-card" data-mode="pvp">
+                  <div class="mode-icon">🔗</div>
+                  <h3>1v1</h3>
+                  <p class="mode-tagline">Spezial</p>
+                  <p class="mode-desc">Bluetooth Duell</p>
+                </div>
+
+                <div class="mode-card coming-soon">
+                  <div class="mode-icon">⭐</div>
+                  <h3>Mystery</h3>
+                  <p class="mode-tagline" style="visibility:hidden">Coming Soon</p>
+                  <p class="mode-desc">Geheimnis gelüftet...</p>
+                </div>
+
+                <div class="mode-card coming-soon">
+                  <div class="mode-icon">🎮</div>
+                  <h3>Duels</h3>
+                  <p class="mode-tagline" style="visibility:hidden">Coming Soon</p>
+                  <p class="mode-desc">Epische Duelle</p>
+                </div>
+              </div>
+
+              
+
+              <div id="modePreview" class="mode-preview hidden">
+                <h2 id="modeTitle">Modus</h2>
+                <p id="modeDesc">Wähle einen Modus...</p>
+                <button id="startBtn" class="btn btn-lg">Start Spielen</button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="panel hidden" id="gamePanel">
+            <button id="backBtn" class="back-btn" title="Zurück">←</button>
+          </div>
+
+          <div class="panel hidden" id="gameOverPanel">
+            <h2 id="goTitle">Game Over</h2>
+            <p>Dein Score: <strong id="finalScore">0</strong></p>
+            <button id="restartBtn" class="btn">Nochmal</button>
+            <button id="menuBtn" class="btn" style="margin-left:.5rem;background:#334155">Zurück zum Menü</button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="game-footer">
+        <small>Erstellt mit ❤️ — Tippe / klicke, um zu spielen.</small>
+        <a id="kofiBtn" href="#" class="kofi-btn" title="Support auf Ko-fi">☕ Support</a>
+      </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
